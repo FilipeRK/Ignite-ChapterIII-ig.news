@@ -12,6 +12,9 @@ import styles from './home.module.scss';
 // -> Conteúdo (SSG)
 // -> Comentários do post (Client-side)
 
+//Para testar os eventos no cmd tem que deixar rodando o comando:
+//stripe listen --forward-to localhost:3000/api/webhooks
+
 interface HomeProps {
   product: {
     priceId: string,
