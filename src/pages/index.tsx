@@ -17,7 +17,7 @@ import styles from './home.module.scss';
 
 interface HomeProps {
   product: {
-    priceId: string,
+    priceId: string;
     amount: number;
   }
 }
@@ -29,27 +29,26 @@ export default function Home({ product }: HomeProps) {
         <title>Home | ig.news</title>
       </Head>
 
-      <main className={styles.contentContainer}>
+      <main className={styles.contentContainer} >
         <section className={styles.hero}>
-          <span>👏 Hey, Welcome</span>
+          <span>👏 Hey, welcome</span>
           <h1>News about the <span>React</span> world.</h1>
           <p>
-            Get access to all the publications <br />
+            Get acces to all the publications <br />
             <span>for {product.amount} month</span>
           </p>
           <SubscribeButton priceId={product.priceId} />
         </section>
 
-        <img src="/images/avatar.svg" alt="Girl Coding" />
+        <img src="/images/avatar.svg" alt="Girl coding" />
       </main>
     </>
   )
 }
 
-//SSG (Static Site Generation)
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve('price_1Id18uK1YUXKRUk6AU3ROptI');
-  
+  const price = await stripe.prices.retrieve('price_1Id18uK1YUXKRUk6AU3ROptI')
+
   const product = {
     priceId: price.id,
     amount: new Intl.NumberFormat('en-US', {
@@ -60,7 +59,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      product
+      product,
     },
     revalidate: 60 * 60 * 24, // 24 hours
   }
