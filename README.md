@@ -28,12 +28,6 @@ The project must be built with npm, so download it below if you don't have any i
 To run this server you will need a node version 12.0.0 (minimum) 
 
 
-
-
-
-
-
-
 ## 🛠 Technologies used
 
 Below the technologies used to build the application
@@ -62,39 +56,6 @@ Create account and configure external services:
 - [Stripe](https://stripe.com/)
 - [FaunaDB](https://fauna.com/)
 - [Prismic CMS](https://prismic.io/)
-
-### ** Project clone **
-
-```bash
-# Run the git clone command to clone the repository
-$ git clone https://github.com/FilipeRK/Ignite-ChapterIII-ig.news.git
-# Enter the cloned repository folder
-$ cd Ignite-ChapterIII-ig.news
-```
-
-### ** Starting the project **
-
-```bash
-# Run yarn to install the dependencies
-$ yarn
-
-# At the root of the project, create a copy of the .env.example file
-# Change the name of the copy to .env.local
-
-# Run stripe listen to listen to webhook events
-$ stripe listen --forward-to localhost:3000/api/webhooks 
-
-# To start the application
-$ yarn dev
-
-```
-
-
-
-
-
-
-
 
 ## Stripe
 
@@ -133,24 +94,17 @@ After creating your FaunaDB account, follow the steps:
 * Create a database with the name: ignews
 * Create a collections called: users
 * Create a collections called: subscriptions
-* Create the index: user_by_stripe_customer_id on the users collection with the term: data.stripe_customer_id
-* Create the index: user_by_email on the users collection with the term: data.email
-* Create the index: subscription_by_user_ref on the users collection with the term: data.userId
-* Create the index: subscription_by_id on the subscriptions collection with the term: data.id
-* Create the index: subscription_by_status on the subscriptions collection with the term: data.status
+* Create the index: `user_by_stripe_customer_id` on the `users` collection with the term: `data.stripe_customer_id`
+* Create the index: `user_by_email` on the `users` collection with the term: `data.email`
+* Create the index: `subscription_by_user_ref` on the `users` collection with the term: `data.userId`
+* Create the index: `subscription_by_id` on the `subscriptions` collection with the term: `data.id`
+* Create the index: `subscription_by_status` on the `subscriptions` collection with the term: `data.status`
 
 Finally you must add this line to `.env.local` file:
 
 ```js
 FAUNADB_KEY= // Api key
 ```
-
-
-
-
-
-
-
 
 ## Github
 
@@ -163,23 +117,9 @@ GITHUB_CLIENT_ID= // Client app key
 GITHUB_CLIENT_SECRET= //Client app secret key
 ```
 
-
-
-
-
-
-
-
-
-
-
 ## Prismic
 
 [Prismic](https://prismic.io) is a Content Management System, a tool for editing online content.
-
-You must create a account and a new Type `Publication` whith this format:
-
-![Screenshot](PrismicType.PNG)
 
 After creating your repository go to the "Custom Types" tab, add a new one with the following settings
 
@@ -203,6 +143,32 @@ PRISMIC_API_ENDPOINT= // Api endpoint
 PRISMIC_ACCESS_TOKEN= // Api secret token
 ```
 
+### ** Project clone **
+
+```bash
+# Run the git clone command to clone the repository
+$ git clone https://github.com/FilipeRK/Ignite-ChapterIII-ig.news.git
+# Enter the cloned repository folder
+$ cd Ignite-ChapterIII-ig.news
+```
+
+### ** Starting the project **
+
+```bash
+# Run yarn to install the dependencies
+$ yarn
+
+# At the root of the project, create a copy of the .env.example file
+# Change the name of the copy to .env.local
+
+# Run stripe listen to listen to webhook events
+$ stripe listen --forward-to localhost:3000/api/webhooks 
+
+# To start the application
+$ yarn dev
+
+```
+
 # Screenshots 
 
 * Home Page
@@ -220,3 +186,5 @@ PRISMIC_ACCESS_TOKEN= // Api secret token
 * Complete Post Page
 
 ![Screenshot](CompletePostPage.PNG)
+
+<p >Developed by <a href="https://github.com/FilipeRK">Filipe Kohls </a>
